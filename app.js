@@ -55,6 +55,7 @@ function playRound(playerSelection, computerSelection) {
       return "No one wins this round. Draw this time!";
     }
   }
+
   btns.forEach((btn) => {
     btn.removeEventListener("click", outputResult);
   });
@@ -93,10 +94,13 @@ function outputResult(e) {
 //function to check winner
 function checkWinner() {
   newPara.classList.add("new-para");
-  newPara.textContent =
-    playerScore === 5
-      ? `You win the game! Wanna play again?`
-      : `Computer win the game! Wanna play again?`;
+  if (playerScore === 5) {
+    newPara.textContent = `You win the game! Wanna play again?`;
+    container.style.backgroundColor = "green";
+  } else if (computerScore === 5) {
+    newPara.textContent = `Computer win the game! Wanna play again?`;
+    container.style.backgroundColor = "red";
+  }
   return upperContainer.appendChild(newPara);
 }
 
@@ -113,6 +117,7 @@ function resetGame() {
     playerChoice.textContent = "";
     computerChoice.textContent = "";
     newPara.textContent = "";
+    container.style.backgroundColor = "white";
     game();
   });
 }
