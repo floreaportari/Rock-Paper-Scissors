@@ -1,3 +1,4 @@
+//Selection elements
 const btns = document.querySelectorAll(".btn");
 const container = document.querySelector(".container");
 const upperContainer = document.querySelector(".upper-container");
@@ -12,15 +13,18 @@ let computerScoreEl = document.querySelector(".computer-score");
 const newPara = document.createElement("p");
 const resetBtn = document.createElement("button");
 
+//creating new elements
 let playerScore = 0;
 let computerScore = 0;
 
+//computer choice function
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
   const randomChoice = Math.floor(Math.random() * choices.length);
   return choices[randomChoice];
 }
 
+//playing one round function
 function playRound(playerSelection, computerSelection) {
   while (playerScore < 5 && computerScore < 5) {
     if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -59,6 +63,7 @@ function playRound(playerSelection, computerSelection) {
   resetGame();
 }
 
+//function to run/start the game
 function game() {
   btns.forEach((btn) => {
     btn.addEventListener("click", outputResult);
@@ -66,6 +71,7 @@ function game() {
   });
 }
 
+//function to output the results when buttons are clicked
 function outputResult(e) {
   let playerSelection = e.target.firstChild.textContent;
   let computerSelection = getComputerChoice();
@@ -84,6 +90,7 @@ function outputResult(e) {
   container.appendChild(lowerContainer);
 }
 
+//function to check winner
 function checkWinner() {
   newPara.classList.add("new-para");
   newPara.textContent =
@@ -93,6 +100,7 @@ function checkWinner() {
   return upperContainer.appendChild(newPara);
 }
 
+//function to reset the game and add "play again" btn
 function resetGame() {
   resetBtn.textContent = "Play again";
   resetBtn.classList.add("reset-btn");
