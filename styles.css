@@ -89,7 +89,7 @@ body {
   padding: 10px 15px;
   position: absolute;
   bottom: 20px;
-  border: 1px solid;
+  border: 1px solid #000;
   border-radius: 8px;
   background-color: inherit;
   outline: none;
