@@ -2,8 +2,6 @@
 
 ### Rock-Paper-Scissors game with Odin Project!
 
-## <br/>
-
 > Site live preview: https://floreaportari.github.io/Rock-Paper-Scissors/
 
 ---
